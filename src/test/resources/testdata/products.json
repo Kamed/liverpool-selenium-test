@@ -1,0 +1,79 @@
+{
+  "testData": {
+    "credentials": {
+      "email": "tu_email_de_prueba@gmail.com",
+      "password": "tu_contraseña_aqui"
+    },
+    "baseUrl": "https://www.liverpool.com.mx",
+    "testCases": [
+      {
+        "id": "TC001",
+        "name": "Navigate to Men's Boots",
+        "type": "functional",
+        "category": "Zapatos de Hombre",
+        "subcategory": "Botas"
+      },
+      {
+        "id": "TC002",
+        "name": "Navigate to Men's Mocasins",
+        "type": "functional",
+        "category": "Zapatos de Hombre",
+        "subcategory": "Mocasines"
+      },
+      {
+        "id": "TC003",
+        "name": "Navigate to Perfumes",
+        "type": "functional",
+        "category": "Perfumes"
+      },
+      {
+        "id": "TC004",
+        "name": "Navigate to Electronics - Lenovo",
+        "type": "functional",
+        "category": "Electrónicos"
+      },
+      {
+        "id": "TC005",
+        "name": "Navigate to Electronics - Sony Screen",
+        "type": "functional",
+        "category": "Electrónicos"
+      },
+      {
+        "id": "TC006",
+        "name": "Navigate to Electronics - Xbox",
+        "type": "functional",
+        "category": "Electrónicos"
+      },
+      {
+        "id": "TC007",
+        "name": "Add product to cart successfully",
+        "type": "functional"
+      },
+      {
+        "id": "TC008",
+        "name": "Verify cart item count",
+        "type": "functional"
+      },
+      {
+        "id": "TC009",
+        "name": "Empty cart validation",
+        "type": "negative"
+      },
+      {
+        "id": "TC010",
+        "name": "Invalid quantity",
+        "type": "negative"
+      },
+      {
+        "id": "TC011",
+        "name": "Add same product twice",
+        "type": "edge_case"
+      },
+      {
+        "id": "TC012",
+        "name": "Price validation on checkout",
+        "type": "edge_case"
+      }
+    ]
+  }
+}
