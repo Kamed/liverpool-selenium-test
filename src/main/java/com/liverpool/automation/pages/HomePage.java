@@ -4,31 +4,45 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 /**
- * Page Object para la página principal
+ * Page Object para la página principal (Home)
  */
 public class HomePage extends BasePage {
 
     // Localizadores
-    private By categoryMenu = By.xpath("//a[contains(text(), '%s')]");
-    private By welcomeMessage = By.xpath("//h1[contains(text(), 'Bienvenido')]");
+    private By loginButton = By.xpath("//div[@data-testid='blt26617d4f2e17657d-header-menu-dropdown']");
+    private By categoriesMenuButton = By.xpath("//button[@data-testid='blt26617d4f2e17657d-header-button-category']");
+    private By cartButton = By.xpath("//button[contains(@class, 'a-header__bag LP')]");
 
     public HomePage(WebDriver driver) {
         super(driver);
     }
 
     /**
-     * Hace click en una categoría del menú
+     * Navega a la página principal
      */
-    public void clickCategory(String categoryName) {
-        By categoryLocator = By.xpath(String.format("//a[contains(text(), '%s')]", categoryName));
-        click(categoryLocator);
+    public void navigateToHome(String baseUrl) {
+        navigateTo(baseUrl);
     }
 
     /**
-     * Verifica si el usuario está logueado
+     * Hace click en botón "Iniciar Sesión"
      */
-    public boolean isUserLoggedIn() {
-        return isElementDisplayed(welcomeMessage);
+    public void clickLoginButton() {
+        click(loginButton);
+    }
+
+    /**
+     * Abre el menú de categorías
+     */
+    public void clickCategoriesMenu() {
+        click(categoriesMenuButton);
+    }
+
+    /**
+     * Navega al carrito
+     */
+    public void clickCartButton() {
+        click(cartButton);
     }
 
     /**

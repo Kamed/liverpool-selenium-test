@@ -9,38 +9,30 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage extends BasePage {
 
     // Localizadores
-    private By emailInput = By.id("email");
+    private By emailInput = By.id("username");
     private By passwordInput = By.id("password");
-    private By loginButton = By.xpath("//button[contains(text(), 'Iniciar sesión')]");
-    private By errorMessage = By.className("error-message");
+    private By loginButton = By.xpath("//button[@type='submit']");
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
     /**
-     * Navega a la página de login
-     */
-    public void navigateToLoginPage(String baseUrl) {
-        navigateTo(baseUrl + "/u/login");
-    }
-
-    /**
-     * Ingresa email
+     * Ingresa el email
      */
     public void enterEmail(String email) {
         sendKeys(emailInput, email);
     }
 
     /**
-     * Ingresa contraseña
+     * Ingresa la contraseña
      */
     public void enterPassword(String password) {
         sendKeys(passwordInput, password);
     }
 
     /**
-     * Hace click en botón de login
+     * Hace click en botón "Iniciar sesión"
      */
     public void clickLoginButton() {
         click(loginButton);
@@ -53,19 +45,5 @@ public class LoginPage extends BasePage {
         enterEmail(email);
         enterPassword(password);
         clickLoginButton();
-    }
-
-    /**
-     * Verifica si hay mensaje de error
-     */
-    public boolean isErrorMessageDisplayed() {
-        return isElementDisplayed(errorMessage);
-    }
-
-    /**
-     * Obtiene mensaje de error
-     */
-    public String getErrorMessage() {
-        return getText(errorMessage);
     }
 }

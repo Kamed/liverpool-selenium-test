@@ -2,27 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-current.dtd">
 <suite name="Liverpool Automation Test Suite" verbose="2" parallel="false">
 
-    <test name="Login Tests">
+    <test name="Liverpool Complete Purchase Flow">
         <classes>
-            <class name="com.liverpool.automation.tests.LoginTest"/>
-        </classes>
-    </test>
-
-    <test name="Navigation Tests">
-        <classes>
-            <class name="com.liverpool.automation.tests.NavigationTest"/>
-        </classes>
-    </test>
-
-    <test name="Cart Tests">
-        <classes>
-            <class name="com.liverpool.automation.tests.CartTest"/>
-        </classes>
-    </test>
-
-    <test name="Checkout Tests">
-        <classes>
-            <class name="com.liverpool.automation.tests.CheckoutTest"/>
+            <class name="com.liverpool.automation.tests.LiverpoolCompleteFlowTest"/>
         </classes>
     </test>
 

@@ -1,11 +1,12 @@
 com\liverpool\automation\utils\ScreenshotUtils.class
+com\liverpool\automation\pages\CategoriesPage.class
 com\liverpool\automation\config\DriverManager.class
 com\liverpool\automation\pages\BasePage.class
 com\liverpool\automation\utils\DataUtils.class
+com\liverpool\automation\pages\ProductDetailsPage.class
 com\liverpool\automation\pages\CartPage.class
 com\liverpool\automation\pages\LoginPage.class
 com\liverpool\automation\pages\HomePage.class
 com\liverpool\automation\pages\ProductListPage.class
-com\liverpool\automation\pages\CategoryPage.class
 com\liverpool\automation\utils\WaitUtils.class
 com\liverpool\automation\pages\CheckoutPage.class

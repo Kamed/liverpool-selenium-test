@@ -4,13 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 /**
- * Page Object para la lista de productos
+ * Page Object para la página de lista de productos
  */
 public class ProductListPage extends BasePage {
 
-    private By productItem = By.xpath("//div[contains(@class, 'product')]");
-    private By addToCartButton = By.xpath("//button[contains(text(), 'Agregar al carrito')]");
-    private By productName = By.xpath("//span[contains(@class, 'product-name')]");
+    // Localizadores
+    private By productList = By.xpath("//ul[@class='m-product__listingPlp']");
+    private By firstProductLink = By.xpath("//ul[@class='m-product__listingPlp']/li[1]//a");
 
     public ProductListPage(WebDriver driver) {
         super(driver);
@@ -20,29 +20,37 @@ public class ProductListPage extends BasePage {
      * Verifica si la lista de productos se muestra
      */
     public boolean isProductListDisplayed() {
-        return isElementDisplayed(productItem);
+        try {
+            return driver.findElement(productList).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     /**
-     * Busca y agrega un producto al carrito por nombre
+     * Hace click en el primer producto de la lista
      */
-    public void addProductToCartByName(String productName) {
-        By productXpath = By.xpath(String.format("//div[contains(@class, 'product')]//span[contains(text(), '%s')]/ancestor::div[@class='product']//button[contains(text(), 'Agregar')]", productName));
-        click(productXpath);
+    public void clickFirstProduct() {
+        click(firstProductLink);
     }
 
     /**
      * Obtiene el nombre del primer producto
      */
     public String getFirstProductName() {
-        return getText(productName);
+        try {
+            return driver.findElement(firstProductLink).getText();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     /**
-     * Verifica si un producto específico existe
+     * Hace click en un producto por nombre
      */
-    public boolean isProductExists(String productName) {
-        By productXpath = By.xpath(String.format("//span[contains(text(), '%s')]", productName));
-        return isElementDisplayed(productXpath);
+    public void clickProductByName(String productName) {
+        By productLocator = By.xpath(String.format(
+                "//ul[@class='m-product__listingPlp']//a[contains(., '%s')]", productName));
+        click(productLocator);
     }
 }
