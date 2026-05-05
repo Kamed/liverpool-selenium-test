@@ -3,6 +3,7 @@ package com.liverpool.automation.pages;
 import com.liverpool.automation.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.JavascriptExecutor;
 
 /**
  * Page Object para la página de detalles del producto
@@ -37,8 +38,32 @@ public class ProductDetailsPage extends BasePage {
     /**
      * Hace click en el primer tamaño disponible
      */
-    public void clickFirstSize() {
+    public void clickFirstSizeBKP() {
         click(firstSizeButton);
+    }
+
+    /**
+     * Hace click en el primer tamaño disponible
+     */
+    public void clickFirstSize() {
+        try {
+            waitUtils.waitSeconds(1);
+
+            // Intentar con JavaScript click (más confiable)
+            var element = driver.findElement(firstSizeButton);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+
+            System.out.println("Click en tamaño realizado con JavaScript");
+        } catch (Exception e) {
+            System.out.println("Error al hacer click en tamaño: " + e.getMessage());
+            // Intentar con click normal como fallback
+            try {
+                click(firstSizeButton);
+            } catch (Exception e2) {
+                System.out.println("Falló tanto JavaScript como click normal");
+                throw e2;
+            }
+        }
     }
 
     /**

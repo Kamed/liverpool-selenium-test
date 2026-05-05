@@ -1,8 +1,8 @@
 {
   "testData": {
     "credentials": {
-      "email": "kamedstarrk@outlook.com",
-      "password": "TestLiverp00l"
+      "email": "",
+      "password": ""
     },
     "baseUrl": "https://www.liverpool.com.mx",
     "testCases": [
